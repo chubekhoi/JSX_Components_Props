@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        const courses = [
+            {
+                name:'HTML,CSS',
+            },
+            {
+                name:'Reponsive web degsi',
+            },
+            {
+                name:'React js',
+            }
+        ];
+        const coursesul =(courses.map(function (course ,index) {
+            return    <h1 key={index}>{course.name}</h1>
+            }));
+     
+        ReactDOM.render(coursesul,document.querySelector('#root'));
+
+        </script>
+        <!-- <script src="./JSX.js"></script> -->
+</body>
+</html>
