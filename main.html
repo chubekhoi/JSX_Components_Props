@@ -11,24 +11,24 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-
-        const courses = [
-            {
-                name:'HTML,CSS',
-            },
-            {
-                name:'Reponsive web degsi',
-            },
-            {
-                name:'React js',
-            }
-        ];
-        const coursesul =(courses.map(function (course ,index) {
-            return    <h1 key={index}>{course.name}</h1>
-            }));
-     
-        ReactDOM.render(coursesul,document.querySelector('#root'));
-
+        const pReact=React.createElement('p',null,'hello word')
+        function Post_List() {
+            return( <div className='post-list'>
+                    <img src="https://files.fullstack.edu.vn/f8-prod/blog_posts/10498/664b3bedbde79.png" alt=""/>
+                    <h2 className='post-title'>Config Zsh bằng Oh-my-zsh và P10k trên WSL cực ngầu </h2>
+                    <p className='post-des'>`F8` sẽ đưa bạn đến chính xác từng vị trí xảy ra vấn đề. F8 là phím tắt mặc định trong VScode các bạn nhé (không phải cài thêm bất cứ Extensions nào)</p>
+                    <p className='post-published'>một tháng trước·4 phút đọc</p>                    
+                    </div>   
+                )
+        }
+        const app = (
+            <div className='posts-list'>
+                <Post_List></Post_List>
+                <Post_List></Post_List>
+        
+                </div>
+        )
+        ReactDOM.render(app,document.querySelector('#root'))
         </script>
         <!-- <script src="./JSX.js"></script> -->
 </body>
