@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"></script> 
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        const Button = function ({title,href,onClick}) {
+            let Commponent = ''
+            const props = {}
+            if (onClick) {
+                Commponent = 'button'
+                props.onClick = onClick
+            }
+            if (href) {
+                Commponent = 'a'
+                props.href = href
+            }
+            if (onClick && href) {
+                Commponent = 'h1'
+                title = 'lổi không thể thực hiện'
+                props.href = undefined
+                props.onClick = undefined
+
+            }
+
+            return(
+            <Commponent {...props}>{title}</Commponent>
+            )
+            
+        }
+
+
+
+        function App() {
+        const handelonClick = function () {
+            console.log(Math.random());
+        }
+            return( 
+                <div className="wapper">
+                    <Button 
+                    title='click me!'
+                    href='https://fullstack.edu.vn/'
+                    onClick = {handelonClick}
+                    
+                    />
+                    </div>
+            )
+        }
+
+        ReactDOM.render(<App/>,document.querySelector('#root'))
+    </script>
+
+</body>
+</html>

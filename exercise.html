@@ -121,23 +121,25 @@
       "is_published": false
     }
   ]
-    const Course = function ({title,description,image_url}) {
+    const Course = function ({course,onClick}) {
         return(
         <div className='course'>
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <img src={image_url}></img>
+            <h2 onClick={() => onClick(course)} >{course.title}</h2>
+            <p>{course.description}</p>
+            <img src={course.image_url}></img>
         </div>
         )
     }
         const App = function () {
-            
+            function handelClick(course) {
+              alert(course.title)
+            };
+
             return( courses_list.map((course) =>{
                 return(<Course 
-                title={course.title}
-                description={course.description}
-                image_url={course.image_url}
-                
+                key = {course.id}
+                course = {course}
+                onClick = {handelClick} 
                 />)
                 
             } ))
