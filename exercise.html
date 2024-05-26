@@ -121,28 +121,29 @@
       "is_published": false
     }
   ]
-    const Course = function ({course,onClick}) {
+    const List = function ({data,children}) {
         return(
-        <div className='course'>
-            <h2 onClick={() => onClick(course)} >{course.title}</h2>
-            <p>{course.description}</p>
-            <img src={course.image_url}></img>
-        </div>
+        <ul>{data.map(function (item) {
+          return(children(item))
+        })}</ul>
         )
     }
         const App = function () {
             function handelClick(course) {
-              alert(course.title)
+              alert(course.title )
             };
 
-            return( courses_list.map((course) =>{
-                return(<Course 
-                key = {course.id}
-                course = {course}
-                onClick = {handelClick} 
-                />)
-                
-            } ))
+            return( 
+              <List
+              data = {courses_list}
+              >{(item)=><li>  
+                <div className='course'>
+                    <h2 onClick={() => handelClick(item)} >{item.title}</h2>
+                    <p>{item.description}</p>
+                    <img src={item.image_url}></img>
+                </div>
+                    </li>}</List>
+            )
         }
         ReactDOM.render(<App/>,document.querySelector('#root'))
     </script>
